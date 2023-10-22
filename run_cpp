@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+current_dir=$(basename "$PWD")
+output="$script_dir/build/$current_dir"
+
+if [ ! -f test.cpp ]; then
+    echo "Cannot find test.cpp"
+    exit 1
+fi
+
+g++ \
+    -std=c++20 \
+    -g \
+    -I"$script_dir/cpp_utils" \
+    -o "$output" \
+    test.cpp \
+    -lfmt \
+    -lgtest \
+    -lgtest_main
+
+$output

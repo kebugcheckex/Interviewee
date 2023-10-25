@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <deque>
 #include <iostream>
 #include <map>
 #include <numeric>
@@ -17,6 +18,7 @@
 // interview questions, so why not?
 using namespace std;
 
+namespace utils {
 template <typename T>
 void printVectorOfVector(const vector<vector<T>>& data,
                          string title = "untitiled") {
@@ -29,3 +31,14 @@ void printVectorOfVector(const vector<vector<T>>& data,
   }
   cout << "===== END " << title << " =====\n";
 }
+
+void printUnorderedSet(const unordered_set<int>& data,
+                       string title = "untitiled") {
+  cout << "===== BEGIN " << title << " =====\n";
+  for (auto it = data.begin(); it != data.end(); ++it) {
+    cout << *it << ", ";
+  }
+  cout << "\b\b\n===== END " << title << " =====\n";
+}
+
+}  // namespace utils

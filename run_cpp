@@ -11,8 +11,11 @@ if [ ! -f test.cpp ]; then
     exit 1
 fi
 
-g++ \
+clang++ \
     -std=c++20 \
+    -fsanitize=address \
+    -fno-omit-frame-pointer \
+    -O1 \
     -g \
     -I"$script_dir/cpp_utils" \
     -o "$output" \

@@ -2,26 +2,37 @@
 
 set -e
 
-script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
-current_dir=$(basename "$PWD")
-output="$script_dir/build/$current_dir"
+root_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+current=$(basename "$PWD")
 
-if [ ! -f test.cpp ]; then
-    echo "Cannot find test.cpp"
-    exit 1
-fi
+pushd "$root_dir/build"
 
-clang++ \
-    -std=c++20 \
-    -fsanitize=address \
-    -fno-omit-frame-pointer \
-    -O1 \
-    -g \
-    -I"$script_dir/cpp_utils" \
-    -o "$output" \
-    test.cpp \
-    -lfmt \
-    -lgtest \
-    -lgtest_main
+cmake ..
+make "$current"
+./"$current"
 
-$output
+popd
+
+# old code: deprecated
+# output="$root_dir/build/$current_dir"
+
+# if [ ! -f test.cpp ]; then
+#     echo "Cannot find test.cpp"
+#     exit 1
+# fi
+
+# clang++ \
+#     -std=c++20 \
+#     -fsanitize=address \
+#     -fno-omit-frame-pointer \
+#     -O1 \
+#     -g \
+#     -I"$root_dir/cpp_utils" \
+#     -o "$output" \
+#     "$root_dir/cpp_utils/utils.cpp" \
+#     test.cpp \
+#     -lfmt \
+#     -lgtest \
+#     -lgtest_main
+
+# $output

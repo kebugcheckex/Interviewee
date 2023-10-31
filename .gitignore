@@ -1,2 +1,5 @@
 *.o
 *.hi
+
+# Python
+__pycache__/

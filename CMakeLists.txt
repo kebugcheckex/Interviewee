@@ -12,4 +12,7 @@ add_link_options(-fsanitize=address)
 
 include_directories(${PROJECT_SOURCE_DIR}/cpp_utils)
 
-add_subdirectory(oa/numbers_station)
+add_subdirectory("oa/numbers_station")
+add_subdirectory("leetcode/146-lru-cache")
+add_subdirectory("leetcode/460-lfu-cache")
+add_subdirectory("leetcode/489-robot-room-cleaner")

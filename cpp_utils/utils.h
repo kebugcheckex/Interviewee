@@ -7,9 +7,19 @@ concept Printable = std::is_same_v<T, int> || std::is_same_v<T, float> ||
                     std::is_same_v<T, double> || std::is_same_v<T, char> ||
                     std::is_same_v<T, std::string>;
 
-// template <typename T>
-// concept GeneticMap = std::is_same_v<T, std::map<K, V>> || std::is_same_v < T,
-//         std::unordered_map<T, std::unordered_map<K, V>>;
+struct OrderedPairHash {
+  std::size_t operator()(const std::pair<int, int>& p) const {
+    // Use a combination of the hashes of the two integers
+    // to create a unique hash for the pair.
+    std::hash<int> hasher;
+    std::size_t hash1 = hasher(p.first);
+    std::size_t hash2 = hasher(p.second);
+
+    // Combine the two hashes using a simple bitwise operation.
+    // You can use other techniques like XOR (^) or shift (<<) as well.
+    return hash1 ^ (hash2 << 1);
+  }
+};
 
 namespace utils {
 

@@ -6,9 +6,9 @@ namespace utils {
 void printMap(const std::unordered_map<char, int>& data,
               const std::string title) {
   std::cout << "======== [BEGIN] " << title << " ========\n";
-  std::cout << fmt::format("\tmap size = {}\n", data.size());
+  std::cout << std::format("\tmap size = {}\n", data.size());
   for (const auto& [key, value] : data) {
-    std::cout << fmt::format("\t{}: {}\n", key, value);
+    std::cout << std::format("\t{}: {}\n", key, value);
   }
   std::cout << "======== [END] " << title << " ========\n";
 }
@@ -40,6 +40,32 @@ void printSet(const std::set<int>& data, std::string title) {
     std::cout << *it << ", ";
   }
   std::cout << "\b\b\n===== END " << title << " =====\n";
+}
+
+std::ostream& operator<<(std::ostream& ostr,
+                         const std::unordered_map<int, std::list<int>>& data) {
+  std::vector<std::string> lines;
+  // for (const auto& [key, valueList] : data) {
+  //   ostr << "\t" << key << " => {";
+  //   for (auto it = valueList.begin(); it != valueList.end(); ++it) {
+  //     ostr << " " << *it;
+  //   }
+  //   ostr << " }\n";
+  // }
+  for (const auto& [key, valueList] : data) {
+    std::ostringstream oss;
+    oss << "\t" << key << " => {";
+    for (auto it = valueList.begin(); it != valueList.end(); ++it) {
+      oss << " " << *it;
+    }
+    oss << " }\n";
+    lines.push_back(oss.str());
+  }
+  for (auto it = lines.rbegin(); it != lines.rend(); ++it) {
+    ostr << *it;
+  }
+  ostr << "\n";
+  return ostr;
 }
 
 }  // namespace utils

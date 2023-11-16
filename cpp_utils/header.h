@@ -1,11 +1,10 @@
 #pragma once
 
-#include <fmt/format.h>
-
 #include <algorithm>
 #include <cmath>
 #include <concepts>
 #include <deque>
+#include <format>
 #include <iostream>
 #include <iterator>
 #include <list>

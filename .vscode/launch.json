@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/build/740-delete-and-earn",
+            "program": "${workspaceRoot}/build/leetcode/489-robot-room-cleaner/489-robot-room-cleaner",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

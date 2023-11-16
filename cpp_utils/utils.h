@@ -37,4 +37,8 @@ template <typename T>
 void printVectorOfVector(const std::vector<std::vector<T>>& data,
                          std::string title = "untitiled");
 
+// Print a map of int -> list<int>
+std::ostream& operator<<(std::ostream& ostr,
+                         const std::unordered_map<int, std::list<int>>& data);
+
 }  // namespace utils

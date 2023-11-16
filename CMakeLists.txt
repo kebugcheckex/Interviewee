@@ -12,7 +12,11 @@ add_link_options(-fsanitize=address)
 
 include_directories(${PROJECT_SOURCE_DIR}/cpp_utils)
 
+add_subdirectory("cpp_utils")
 add_subdirectory("oa/numbers_station")
 add_subdirectory("leetcode/146-lru-cache")
 add_subdirectory("leetcode/460-lfu-cache")
 add_subdirectory("leetcode/489-robot-room-cleaner")
+add_subdirectory("leetcode/2466-count-ways-to-build-good-strings")
+add_subdirectory("leetcode/2771-longest-non-decreasing-subarray-from-two-arrays")
+add_subdirectory("leetcode/124-binary-tree-maximum-path-sum")

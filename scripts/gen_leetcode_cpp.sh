@@ -4,7 +4,7 @@ set -e
 
 dir_name=$(basename "$PWD")
 
-if [[ "$dir_name" != "InterviewPrep" ]]; then
+if [[ "$dir_name" != "Interviewee" ]]; then
     echo "Please run this script in the root dir"
     exit 1
 fi

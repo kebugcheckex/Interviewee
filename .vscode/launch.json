@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/build/leetcode/489-robot-room-cleaner/489-robot-room-cleaner",
+            "program": "${workspaceRoot}/build/leetcode/528-random-pick-with-weight/528-random-pick-with-weight",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
